@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Advent of Code - Day 1</title>
+    <meta name="description" content="">
+    <style></style>
+</head>
+<body>
+<h1>Advent of Code Day 1 - Inverse Captcha</h1>
+<p>Puzzle: Review a sequence of digits and find the sum of all digits that match the next digit in the list.</p>
+<p>The list is circular, so the digit after the last digit is the first digit in the list.</p>
+    <input id="number" type="number" placeholder="Enter a string of numbers">
+    <button onclick="inverseCaptcha()">Submit</button>
+<p id="sum"></p>
+
+<script>
+    function inverseCaptcha(){
+        var input = document.getElementById("number").value;
+        var change = input.toString();
+        var sum = 0;
+
+        var capArray = [];
+
+        capArray = change.split('');
+
+        for(var i = 0; i < capArray.length; i++){
+            var j = Number(capArray[i]);
+            if(isNaN(Number(capArray[i+1])) == true){
+                var k = Number(capArray[0]);
+            } else {
+                var k = Number(capArray[i + 1]);
+            }
+
+            if(j == k){
+               sum = sum + j;
+            }
+        }
+
+        document.getElementById("sum").innerHTML = sum;
+
+
+    }
+
+</script>
+</body>
+</html>
